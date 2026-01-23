@@ -18,30 +18,35 @@ daggerDexterity = 8
 goldAmount = 20
 weapon1 = 5
 
+def weapon1Info(weapon1Int):
+    if weapon1Int == 1:
+        print("SWORD INFO\nAttack =", swordAttack, "\nDefense =", swordDefense, "\nDexterity =", swordDexterity)
+    if weapon1Int == 2:
+        print("BOW INFO\nAttack =", bowAttack, "\nDefense =", bowDefense, "\nDexterity =", bowDexterity)
+    if weapon1Int == 3:
+        print("DAGGER INFO\nAttack =", daggerAttack, "\nDefense =", daggerDefense, "\nDexterity =", daggerDexterity)
 
-
-def swordInfo():
-    print("SWORD INFO\nAttack =", swordAttack, "\nDefense =", swordDefense, "\nDexterity =", swordDexterity)
-def bowInfo():
-    print("BOW INFO\nAttack =", bowAttack, "\nDefense =", bowDefense, "\nDexterity =", bowDexterity)
-def daggerInfo():
-    print("DAGGER INFO\nAttack =", daggerAttack, "\nDefense =", daggerDefense, "\nDexterity =", daggerDexterity)
-
-def raceInfo(raceNR):
-    if raceNR == 1:
+def raceInfo(playerRace):
+    if playerRace == 1:
         print("HUMAN INFO\n <PLACEHOLDA>")
-    elif raceNR == 2:
+    elif playerRace == 2:
         print("ELF INFO\n <PLACEHOLDA>")
-    elif raceNR == 3:
+    elif playerRace == 3:
         print("DWARF INFO\n <plACEHOLDA>")
-    elif raceNR == 4:
+    elif playerRace == 4:
         print("ORC INFO\n <PLACEHOLDDDKAJDF;LAKSJF>")
     
-
+def inventoryInfo():
+    print("Gold:", goldAmount)
+    print("Weapons:", weapon1)
 
 def startupMenu():
     originalMenu = 1
     global playerLadySirHuman
+    global goldAmount
+    global weapon1
+    global weapon1Info
+    global weapon1Int
     while True:
         print("...")
         input()
@@ -51,14 +56,14 @@ def startupMenu():
         input()
         print("???: Good day, Traveller. Today, your journey starts.", end="")
         input()
-        print("???: But first, we need to establish the basics. Select 'Character Creation' in the menu below.")
-        input()
+        print("???: But first, we need to establish the basics. Select 'Character Creation' in the menu below.\n")
         break
     
     while True:
         print("1 - Character Creation")
         print("2 - Weapon Equipment")
-        print("3 - Starter Quest")
+        print("3 - Stats")
+        print("4 - Starter Quest")
         menuChoose = int(input())
         if menuChoose == 1:
             if originalMenu == 1:
@@ -106,18 +111,48 @@ def startupMenu():
             print("\nYou chose", playerName, "as your name.",)
             readyToContinue = int(input("Continue?\n1 - Yes\n2 - No\n"))
             if readyToContinue == 1:
-                print("???: Glad to meet you", playerName, "For the next step, you will need to choose your race.\n")
+                print("???: Glad to meet you", playerName, "For the next step, you will need to choose your race.")
                 while True:
-                    
+                    print("1 - Human")
+                    print("2 - Elf")
+                    print("3 - Dwarf")
+                    print("4 - Orc\n")
+                    playerRace = int(input())
+                    if playerRace == 1:
+                        raceInfo(playerRace)
+                        print("Press Y to choose this race, press N to go back.")
+                        YN = input("Y/N ")
+                        if YN == "Y":
+                            YN = "empty"
+                            break
+                    elif playerRace == 2:
+                        raceInfo(playerRace)
+                        print("Press Y to choose this race, press N to go back.")
+                        YN = input("Y/N ")
+                        if YN == "Y":
+                            YN = "empty"
+                            break
+                    elif playerRace == 3:
+                        raceInfo(playerRace)
+                        print("Press Y to choose this race, press N to go back.")
+                        YN = input("Y/N ")
+                        if YN == "Y":
+                            YN = "empty"
+                            break
+                    elif playerRace == 4:
+                        raceInfo(playerRace)
+                        print("Press Y to choose this race, press N to go back.")
+                        YN = input("Y/N ")
+                        if YN == "Y":
+                            YN = "empty"
+                            break
+                    else:
+                        print("I did not understand")
+                print(playerRace)
             elif readyToContinue == 2:
                 print("So like why\n")
             else:
-                print("Try again wtf\n")
-            while True:
-                print("1 - Human")
-                print("2 - Elf")
-                print("3 - Dwarf")
-                print("4 - Orc") 
+                print("Try again wtf\n") 
         elif menuChoose == 2:
             while True:
                 if originalMenu == 2:
@@ -133,7 +168,8 @@ def startupMenu():
                     while True:
                         weaponInfo = int(input("1: Sword.\n2: Bow.\n3: Dagger.\nType 1, 2 or 3 to for more info! "))
                         if weaponInfo == 1:
-                            swordInfo()
+                            weapon1Int = 1
+                            weapon1Info(weapon1Int)
                             print("Press Y to choose this weapon, press N to go back.")
                             YN = input("Y/N ")
                             if YN == "Y":
@@ -141,7 +177,8 @@ def startupMenu():
                                 originalMenu = 3
                                 break
                         elif weaponInfo == 2:
-                            bowInfo()
+                            weapon1Int = 2
+                            weapon1Info(weapon1Int)
                             print("Press Y to choose this weapon, press N to go back.")
                             YN = input("Y/N ")
                             if YN == "Y":
@@ -149,7 +186,8 @@ def startupMenu():
                                 originalMenu = 3
                                 break
                         elif weaponInfo == 3:
-                            daggerInfo()
+                            weapon1Int = 3
+                            weapon1Info(weapon1Int)
                             print("Press Y to choose this weapon, press N to go back.")
                             YN = input("Y/N ")
                             if YN == "Y":
@@ -167,10 +205,12 @@ def startupMenu():
                     print("Blacksmith: As you wish,", playerLadySirHuman, end="! That shall be... 5 gold coins.")
                     input()
                     print("???: That shall leave you with", (goldAmount - 5), "coins.")
+                    goldAmount = goldAmount - 5
                     input()
                     print("???: Your basic character setup is now complete. As you progress you shall find more options to buy armor, weapons, and spells.", end="")
                     input()
-                    print("It's now time for the main quest to begin... Select Starter Quest")
+                    print("It's now time for the main quest to begin... But first, let's check the stats we just set up.")
+                    originalMenu = 3
                 elif originalMenu == 3:
                     break
                 else:
@@ -178,9 +218,12 @@ def startupMenu():
                     sleep(0.5)
         elif menuChoose == 3:
             if originalMenu == 3:
-                print("Let's begin...")
-                for x in range (3):
-                    print("...")
+                raceInfo(playerRace)
+                print("")
+                inventoryInfo()
+                print("")
+                weapon1Info(weapon1Int)
+                print("")
                 break
             else:
                 print("fout")
