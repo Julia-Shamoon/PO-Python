@@ -72,7 +72,7 @@ def startupMenu(): # Start of the game. Character creation, starter weapon, stat
             originalMenu = 2
             while True:
                 print("\nWhat are your pronouns?\n1 - She/her\n2 - He/him\n3 - They/them")
-                playerPronouns = int(input())
+                playerPronouns = int(input()) # Pronouns selection menu
                 if playerPronouns == 1:
                     playerFirstPronoun = "she"
                     playerSecondPronoun = "her"
@@ -96,11 +96,11 @@ def startupMenu(): # Start of the game. Character creation, starter weapon, stat
                     break
                 else:
                     print("I did not understand that\n")
-            print("\n Hello,", playerLadySirHuman, end=". What's your name?\n")
-            playerName = input()
+            print("\n Hello,", playerLadySirHuman, end=". What's your name?\n") # Name input, uses pronouns variables
+            playerName = input() 
             print("")
             while True:
-                print("You chose", playerName, "as your name.",)
+                print("You chose", playerName, "as your name.",) # playername confirmation, might delete / add edit option
                 readyToContinue = int(input("Continue?\n1 - Yes\n2 - No\n"))
                 if readyToContinue == 1:
                     break
@@ -109,31 +109,31 @@ def startupMenu(): # Start of the game. Character creation, starter weapon, stat
                 else:
                     print("I did not understand that\n")
             print("???: Glad to meet you", playerName, "For the next step, you will need to choose your race.")
-            while True:
+            while True: # Race selection.
                 print("1 - Human")
                 print("2 - Elf")
                 print("3 - Dwarf")
                 print("4 - Orc\n")
                 playerRace = int(input())
-                if playerRace == 1:
+                if playerRace == 1: # Human race
                     raceInfo(playerRace)
                     print("Continue?\n1 - Yes\n2 - No\n")
                     readyToContinue = int(input())
                     if readyToContinue == 1:
                         break
-                elif playerRace == 2:
+                elif playerRace == 2: # Elf race
                     raceInfo(playerRace)
                     print("Continue?\n1 - Yes\n2 - No\n")
                     readyToContinue = int(input())
                     if readyToContinue == 1:
                         break
-                elif playerRace == 3:
+                elif playerRace == 3: # Dwarf race
                     raceInfo(playerRace)
                     print("Continue?\n1 - Yes\n2 - No\n")
                     readyToContinue = int(input())
                     if readyToContinue == 1:
                         break
-                elif playerRace == 4:
+                elif playerRace == 4: # Orc race
                     raceInfo(playerRace)
                     print("Continue?\n1 - Yes\n2 - No\n")
                     readyToContinue = int(input())

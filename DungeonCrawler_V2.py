@@ -1,44 +1,4 @@
-from time import sleep
-
-# Sword
-swordAttack = 7
-swordDefense = 4
-swordDexterity = 4
-# Bow
-bowAttack = 8
-bowDefense = 1
-bowDexterity = 2
-
-# Dagger
-daggerAttack = 4
-daggerDefense = 4
-daggerDexterity = 8
-
-# Inventory
-goldAmount = 20
-weapon1 = 5
-
-def weapon1Info(weapon1Int):
-    if weapon1Int == 1:
-        print("SWORD INFO\nAttack =", swordAttack, "\nDefense =", swordDefense, "\nDexterity =", swordDexterity)
-    if weapon1Int == 2:
-        print("BOW INFO\nAttack =", bowAttack, "\nDefense =", bowDefense, "\nDexterity =", bowDexterity)
-    if weapon1Int == 3:
-        print("DAGGER INFO\nAttack =", daggerAttack, "\nDefense =", daggerDefense, "\nDexterity =", daggerDexterity)
-
-def raceInfo(playerRace):
-    if playerRace == 1:
-        print("HUMAN INFO\n <PLACEHOLDA>")
-    elif playerRace == 2:
-        print("ELF INFO\n <PLACEHOLDA>")
-    elif playerRace == 3:
-        print("DWARF INFO\n <plACEHOLDA>")
-    elif playerRace == 4:
-        print("ORC INFO\n <PLACEHOLDDDKAJDF;LAKSJF>")
-    
-def inventoryInfo():
-    print("Gold:", goldAmount)
-    print("Weapons:", weapon1)
+.capitalize()
 
 def startupMenu():
     originalMenu = 1
